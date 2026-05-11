@@ -1,7 +1,6 @@
 package tech.tokorayane.examjeebackend.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import tech.tokorayane.examjeebackend.enums.VehicleStatus;
@@ -14,7 +13,7 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Vehicle {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String marque;
@@ -28,4 +27,7 @@ public abstract class Vehicle {
     private Date commissioningDate;
 
     private VehicleStatus status;
+
+    @ManyToOne
+    private Agency agency;
 }

@@ -20,6 +20,6 @@ public class Agency {
 
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "agency")
     private List<Vehicle> vehicles;
 }
